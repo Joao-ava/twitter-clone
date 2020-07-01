@@ -10,7 +10,7 @@ describe('Following', () => {
     await truncate();
   });
 
-  describe('Follower other user', () => {
+  describe('Following other user', () => {
     it('should no have user', async () => {
       const user = await factory.create('User', {
         id: 1,
