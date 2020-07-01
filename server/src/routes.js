@@ -3,6 +3,7 @@ import { Router } from 'express';
 // controllers
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
+import FollowingController from './app/controllers/FollowingController';
 
 // validations
 import SessionStore from './app/validations/SessionStore';
@@ -20,5 +21,9 @@ routes.post('/user', UserStore, UserController.store);
 routes.use(authMiddleware);
 
 routes.put('/user', UserUpdate, UserController.update);
+
+routes.get('/user/:id/following', FollowingController.index);
+routes.post('/user/:id/following', FollowingController.store);
+routes.delete('/user/:id/following', FollowingController.delete);
 
 export default routes;

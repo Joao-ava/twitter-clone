@@ -37,7 +37,7 @@ class User extends Model {
     });
     this.belongsToMany(models.User, {
       foreignKey: 'follower_id',
-      as: 'following',
+      as: 'followings',
       through: 'user_followers',
     });
   }
