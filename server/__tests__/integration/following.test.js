@@ -75,7 +75,6 @@ describe('Following', () => {
 
       const response = await request(app)
         .get(`/user/${id}/following`)
-        .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.status).toBe(404);
     });
@@ -87,7 +86,6 @@ describe('Following', () => {
       });
       const response = await request(app)
         .get(`/user/${otherUser.id}/following`)
-        .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.status).toBe(200);
     });
@@ -96,7 +94,6 @@ describe('Following', () => {
       const user = await factory.create('User');
       const response = await request(app)
         .get(`/user/${user.id}/following`)
-        .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.body).toBeInstanceOf(Array);
     });
@@ -105,7 +102,6 @@ describe('Following', () => {
       const user = await factory.create('User');
       const response = await request(app)
         .get(`/user/${user.id}/following`)
-        .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.body.length).toBe(0);
     });
@@ -123,7 +119,6 @@ describe('Following', () => {
 
       const response = await request(app)
         .get(`/user/${user.id}/following`)
-        .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.body.length).toBe(2);
     });

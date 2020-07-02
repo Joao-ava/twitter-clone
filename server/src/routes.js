@@ -18,11 +18,12 @@ const routes = new Router();
 routes.post('/session', SessionStore, SessionController.store);
 routes.post('/user', UserStore, UserController.store);
 
+routes.get('/user/:id/following', FollowingController.index);
+
 routes.use(authMiddleware);
 
 routes.put('/user', UserUpdate, UserController.update);
 
-routes.get('/user/:id/following', FollowingController.index);
 routes.post('/user/:id/following', FollowingController.store);
 routes.delete('/user/:id/following', FollowingController.delete);
 
