@@ -4,6 +4,7 @@ import { Router } from 'express';
 import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import FollowingController from './app/controllers/FollowingController';
+import FollowerController from './app/controllers/FollowerController';
 
 // validations
 import SessionStore from './app/validations/SessionStore';
@@ -18,6 +19,7 @@ const routes = new Router();
 routes.post('/session', SessionStore, SessionController.store);
 routes.post('/user', UserStore, UserController.store);
 
+routes.get('/user/:id/follower', FollowerController.index);
 routes.get('/user/:id/following', FollowingController.index);
 
 routes.use(authMiddleware);
