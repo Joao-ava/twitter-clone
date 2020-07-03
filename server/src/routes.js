@@ -5,6 +5,7 @@ import SessionController from './app/controllers/SessionController';
 import UserController from './app/controllers/UserController';
 import FollowingController from './app/controllers/FollowingController';
 import FollowerController from './app/controllers/FollowerController';
+import TwitterController from './app/controllers/TwitterController';
 
 // validations
 import SessionStore from './app/validations/SessionStore';
@@ -28,5 +29,7 @@ routes.put('/user', UserUpdate, UserController.update);
 
 routes.post('/user/:id/following', FollowingController.store);
 routes.delete('/user/:id/following', FollowingController.delete);
+
+routes.post('/twitter', TwitterController.store);
 
 export default routes;

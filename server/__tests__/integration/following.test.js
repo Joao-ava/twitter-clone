@@ -64,9 +64,6 @@ describe('Following', () => {
 
   describe('list followings', () => {
     it('should no have user', async () => {
-      const user = await factory.create('User', {
-        id: 1,
-      });
       const otherUser = await factory.create('User', {
         email: faker.internet.email(),
       });
@@ -80,7 +77,6 @@ describe('Following', () => {
     });
 
     it('should user exist', async () => {
-      const user = await factory.create('User');
       const otherUser = await factory.create('User', {
         email: faker.internet.email(),
       });
