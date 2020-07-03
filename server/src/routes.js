@@ -22,6 +22,7 @@ routes.post('/user', UserStore, UserController.store);
 
 routes.get('/user/:id/follower', FollowerController.index);
 routes.get('/user/:id/following', FollowingController.index);
+routes.get('/user/:id/twitter', TwitterController.index);
 
 routes.use(authMiddleware);
 

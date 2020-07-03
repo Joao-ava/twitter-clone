@@ -9,6 +9,32 @@ describe('Twitter', () => {
     await truncate();
   });
 
+  describe('index', () => {
+    it('should user', async () => {
+      const user = await factory.create('User');
+      const response = await request(app)
+        .get(`/user/${user.id}/twitter`)
+        .send();
+      expect(response.status).toBe(200);
+    });
+
+    it('should return twitters from user', async () => {
+      const user = await factory.create('User');
+      const response = await request(app)
+        .get(`/user/${user.id}/twitter`)
+        .send();
+      expect(response.status).toBe(200);
+    });
+
+    it('should return array', async () => {
+      const user = await factory.create('User');
+      const response = await request(app)
+        .get(`/user/${user.id}/twitter`)
+        .send();
+      expect(response.body).toBeInstanceOf(Array);
+    });
+  });
+
   describe('store', () => {
     it('should not authenticated', async () => {
       const response = await request(app)
