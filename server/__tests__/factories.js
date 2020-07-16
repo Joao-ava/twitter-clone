@@ -3,6 +3,7 @@ import { factory } from 'factory-girl';
 
 import User from '../src/app/models/User';
 import Twitter from '../src/app/models/Twitter';
+import LikeUser from '../src/app/models/LikeUser';
 
 factory.define('User', User, {
   name: faker.name.findName(),
@@ -14,5 +15,7 @@ factory.define('User', User, {
 factory.define('Twitter', Twitter, {
   content: faker.lorem.words(),
 });
+
+factory.define('LikeUser', LikeUser, {});
 
 export default factory;

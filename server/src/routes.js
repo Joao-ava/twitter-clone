@@ -6,6 +6,7 @@ import UserController from './app/controllers/UserController';
 import FollowingController from './app/controllers/FollowingController';
 import FollowerController from './app/controllers/FollowerController';
 import TwitterController from './app/controllers/TwitterController';
+import LikeController from './app/controllers/LikeController';
 
 // validations
 import SessionStore from './app/validations/SessionStore';
@@ -32,5 +33,6 @@ routes.post('/user/:id/following', FollowingController.store);
 routes.delete('/user/:id/following', FollowingController.delete);
 
 routes.post('/twitter', TwitterController.store);
+routes.post('/twitter/:id/like', LikeController.store);
 
 export default routes;

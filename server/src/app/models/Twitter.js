@@ -23,6 +23,9 @@ class Twitter extends Model {
     this.hasMany(models.Twitter, {
       as: 'retwittes',
     });
+    this.hasMany(models.LikeUser, {
+      as: 'users_like',
+    });
   }
 }
 
