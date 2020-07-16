@@ -10,7 +10,7 @@ describe('Twitter', () => {
   });
 
   describe('index', () => {
-    it('should user', async () => {
+    it('should return twitters from user', async () => {
       const user = await factory.create('User');
       const response = await request(app)
         .get(`/user/${user.id}/twitter`)
@@ -18,12 +18,21 @@ describe('Twitter', () => {
       expect(response.status).toBe(200);
     });
 
-    it('should return twitters from user', async () => {
+    it('should have tree', async () => {
       const user = await factory.create('User');
+      await factory.create('Twitter', {
+        user_id: user.id,
+      });
+      await factory.create('Twitter', {
+        user_id: user.id,
+      });
+      await factory.create('Twitter', {
+        user_id: user.id,
+      });
       const response = await request(app)
         .get(`/user/${user.id}/twitter`)
         .send();
-      expect(response.status).toBe(200);
+      expect(response.body.length).toBe(3);
     });
 
     it('should return array', async () => {
