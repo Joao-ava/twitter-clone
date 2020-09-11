@@ -1,7 +1,8 @@
 import faker from 'faker';
 import { factory } from 'factory-girl';
 
-import User from '../src/app/models/User';
+import User from '../src/users/entities/User';
+import UserFollower from '../src/users/entities/UserFollower';
 import Twitter from '../src/app/models/Twitter';
 import LikeUser from '../src/app/models/LikeUser';
 
@@ -17,5 +18,7 @@ factory.define('Twitter', Twitter, {
 });
 
 factory.define('LikeUser', LikeUser, {});
+
+factory.define('UserFollower', UserFollower, {});
 
 export default factory;

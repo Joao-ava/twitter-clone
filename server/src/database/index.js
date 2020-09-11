@@ -2,12 +2,13 @@ import Sequelize from 'sequelize';
 
 import databaseConfig from '../config/database';
 
-import File from '../app/models/File';
-import User from '../app/models/User';
+import File from '../core/entities/File';
+import User from '../users/entities/User';
+import UserFollower from '../users/entities/UserFollower';
 import Twitter from '../app/models/Twitter';
 import LikeUser from '../app/models/LikeUser';
 
-const models = [LikeUser, Twitter, User, File];
+const models = [LikeUser, Twitter, User, UserFollower, File];
 
 class Database {
   constructor() {

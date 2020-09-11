@@ -110,8 +110,14 @@ describe('Following', () => {
       const otherUserTwo = await factory.create('User', {
         email: faker.internet.email(),
       });
-      await user.addFollowings(otherUserOne);
-      await user.addFollowings(otherUserTwo);
+      await factory.create('UserFollower', {
+        user_id: user.id,
+        follower_id: otherUserOne.id,
+      });
+      await factory.create('UserFollower', {
+        user_id: user.id,
+        follower_id: otherUserTwo.id,
+      });
 
       const response = await request(app)
         .get(`/user/${user.id}/following`)

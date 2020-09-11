@@ -1,7 +1,10 @@
-import Twitter from '../models/Twitter';
-import User from '../models/User';
+import { Sequelize } from 'sequelize';
 
-class SessionController {
+import Twitter from '../models/Twitter';
+import User from '../../users/entities/User';
+import LikeUser from '../models/LikeUser';
+
+class TwitterController {
   async index(req, res) {
     const page = Number(req.query.page) || 1;
     const { id } = req.params;
@@ -15,7 +18,20 @@ class SessionController {
 
     const twitters = await Twitter.findAll({
       order: ['id'],
-      limit: 20,
+      attributes: {
+        include: [
+          [Sequelize.fn('COUNT', Sequelize.col('users_like.id')), 'likesCount'],
+        ],
+      },
+      include: [
+        {
+          model: LikeUser,
+          as: 'users_like',
+          attributes: [],
+        },
+      ],
+      group: ['Twitter.id'],
+      // limit: 20,
       offset: (page - 1) * 20,
     });
 
@@ -31,4 +47,4 @@ class SessionController {
   }
 }
 
-export default new SessionController();
+export default new TwitterController();

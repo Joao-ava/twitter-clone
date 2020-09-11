@@ -57,7 +57,7 @@ describe('authenticated', () => {
         email: user.email,
         password: user.password,
       });
-    expect(response.status).toBe(401);
+    expect(response.status).toBe(404);
   });
 
   it('password is incorrect', async () => {

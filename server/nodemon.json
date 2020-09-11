@@ -1,4 +1,5 @@
 {
+  "legacyWatch": true,
   "execMap": {
     "js": "sucrase-node"
   }
