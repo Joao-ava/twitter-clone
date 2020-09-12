@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('twitters', {
+    return queryInterface.createTable('twetters', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -11,6 +11,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true,
       },
+      likes: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
       user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
@@ -18,9 +22,9 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: false,
       },
-      twitter_id: {
+      twetter_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'twitters', key: 'id' },
+        references: { model: 'twetters', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
@@ -37,6 +41,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable('twitters');
+    return queryInterface.dropTable('twetters');
   },
 };

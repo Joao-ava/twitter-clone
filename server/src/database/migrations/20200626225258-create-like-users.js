@@ -14,9 +14,9 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
-      twitter_id: {
+      twetter_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'twitters', key: 'id' },
+        references: { model: 'twetters', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,

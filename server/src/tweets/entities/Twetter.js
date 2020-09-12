@@ -1,10 +1,11 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Twitter extends Model {
+class Twetter extends Model {
   static init(sequelize) {
     super.init(
       {
         content: Sequelize.STRING,
+        likes: Sequelize.INTEGER,
       },
       {
         sequelize,
@@ -16,11 +17,11 @@ class Twitter extends Model {
 
   static associate(models) {
     this.belongsTo(models.User, { foreignKey: 'user_id', as: 'author' });
-    this.belongsTo(models.Twitter, {
-      foreignKey: 'twitter_id',
+    this.belongsTo(models.Twetter, {
+      foreignKey: 'twetter_id',
       as: 'original',
     });
-    this.hasMany(models.Twitter, {
+    this.hasMany(models.Twetter, {
       as: 'retwittes',
     });
     this.hasMany(models.LikeUser, {
@@ -29,4 +30,4 @@ class Twitter extends Model {
   }
 }
 
-export default Twitter;
+export default Twetter;

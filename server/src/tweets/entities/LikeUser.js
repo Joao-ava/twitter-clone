@@ -5,7 +5,7 @@ class LikeUser extends Model {
     super.init(
       {
         user_id: Sequelize.INTEGER,
-        twitter_id: Sequelize.INTEGER,
+        twetter_id: Sequelize.INTEGER,
       },
       { sequelize }
     );
@@ -18,9 +18,9 @@ class LikeUser extends Model {
       foreignKey: 'user_id',
       as: 'author',
     });
-    this.belongsTo(models.Twitter, {
-      foreignKey: 'twitter_id',
-      as: 'twitter',
+    this.belongsTo(models.Twetter, {
+      foreignKey: 'twetter_id',
+      as: 'twetter',
     });
   }
 }

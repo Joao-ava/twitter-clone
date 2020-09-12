@@ -1,18 +1,18 @@
-import Twitter from '../models/Twitter';
-import LikeUser from '../models/LikeUser';
+import Twetter from '../entities/Twetter';
+import LikeUser from '../entities/LikeUser';
 
 class LikeController {
   async store(req, res) {
     const { id } = req.params;
-    const checkTwitter = await Twitter.findByPk(id);
+    const checkTwetter = await Twetter.findByPk(id);
 
-    if (!checkTwitter)
+    if (!checkTwetter)
       return res.status(404).json({ error: 'Twitte não existe' });
 
     const checkLike = await LikeUser.findOne({
       where: {
         user_id: req.userId,
-        twitter_id: id,
+        twetter_id: id,
       },
     });
 
@@ -20,7 +20,7 @@ class LikeController {
 
     const like = await LikeUser.create({
       user_id: req.userId,
-      twitter_id: id,
+      twetter_id: id,
     });
     return res.status(201).json(like);
   }

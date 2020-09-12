@@ -13,7 +13,7 @@ describe('Like', () => {
   it('should no have twitte', async () => {
     const user = await factory.create('User');
     const response = await request(app)
-      .post(`/twitter/${faker.random.number()}/like`)
+      .post(`/twetter/${faker.random.number()}/like`)
       .set('Authorization', `bearer ${user.generateToken()}`)
       .send();
     expect(response.status).toBe(404);
@@ -21,16 +21,16 @@ describe('Like', () => {
 
   it('should alredy have like for twitte', async () => {
     const user = await factory.create('User');
-    const twitter = await factory.create('Twitter', {
+    const twetter = await factory.create('Twetter', {
       user_id: user.id,
     });
     await factory.create('LikeUser', {
       user_id: user.id,
-      twitter_id: twitter.id,
+      twetter_id: twetter.id,
     });
 
     const response = await request(app)
-      .post(`/twitter/${twitter.id}/like`)
+      .post(`/twetter/${twetter.id}/like`)
       .set('Authorization', `bearer ${user.generateToken()}`)
       .send();
     expect(response.status).toBe(200);
@@ -38,12 +38,12 @@ describe('Like', () => {
 
   it('should like user create', async () => {
     const user = await factory.create('User');
-    const twitter = await factory.create('Twitter', {
+    const twetter = await factory.create('Twetter', {
       user_id: user.id,
     });
 
     const response = await request(app)
-      .post(`/twitter/${twitter.id}/like`)
+      .post(`/twetter/${twetter.id}/like`)
       .set('Authorization', `bearer ${user.generateToken()}`)
       .send();
     expect(response.status).toBe(201);
