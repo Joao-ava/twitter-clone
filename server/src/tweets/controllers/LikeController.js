@@ -1,27 +1,12 @@
-import Twetter from '../entities/Twetter';
-import LikeUser from '../entities/LikeUser';
+import TweetRepository from '../repositories/TweetRepository';
+import CreateLikeService from '../services/CreateLikeService';
 
 class LikeController {
   async store(req, res) {
+    const { userId } = req;
     const { id } = req.params;
-    const checkTwetter = await Twetter.findByPk(id);
-
-    if (!checkTwetter)
-      return res.status(404).json({ error: 'Twitte não existe' });
-
-    const checkLike = await LikeUser.findOne({
-      where: {
-        user_id: req.userId,
-        twetter_id: id,
-      },
-    });
-
-    if (checkLike) return res.json({ error: 'Você ja deu like nesse twitte' });
-
-    const like = await LikeUser.create({
-      user_id: req.userId,
-      twetter_id: id,
-    });
+    const createLike = new CreateLikeService(new TweetRepository());
+    const like = await createLike.run({ userId, tweetId: id });
     return res.status(201).json(like);
   }
 }

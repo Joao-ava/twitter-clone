@@ -7,8 +7,8 @@ class CreateTweetService {
   }
 
   async run({ tweetId, userId }) {
-    const tweet = await this.findById(tweetId);
-    if (!tweet) throw new NotFound('Twett não existe');
+    const tweet = await this.tweetRepository.findById(tweetId);
+    if (!tweet) throw new NotFound('Tweet não existe');
 
     const checkLike = await this.tweetRepository.findLike({ tweetId, userId });
     if (checkLike) throw new BadRequest('Você ja deu like nesse twitte');

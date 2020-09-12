@@ -33,7 +33,7 @@ describe('Like', () => {
       .post(`/twetter/${twetter.id}/like`)
       .set('Authorization', `bearer ${user.generateToken()}`)
       .send();
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(400);
   });
 
   it('should like user create', async () => {

@@ -26,8 +26,10 @@ class TweetRepository {
 
   async findLike({ userId, tweetId }) {
     const like = await LikeUser.findOne({
-      user_id: userId,
-      twetter_id: tweetId,
+      where: {
+        user_id: userId,
+        twetter_id: tweetId,
+      },
     });
     return like;
   }
