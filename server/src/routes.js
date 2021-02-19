@@ -34,5 +34,6 @@ routes.delete('/user/:id/following', FollowingController.delete);
 
 routes.post('/twetter', TwetterController.store);
 routes.post('/twetter/:id/like', LikeController.store);
+routes.delete('/twetter/:id/like', LikeController.delete);
 
 export default routes;

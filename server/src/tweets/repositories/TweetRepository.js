@@ -15,13 +15,13 @@ class TweetRepository {
       where = { user_id: userId };
     }
 
-    const twetters = await Twetter.findAll({
+    const twetts = await Twetter.findAll({
       order: ['id'],
       where,
       limit,
       offset,
     });
-    return twetters;
+    return twetts;
   }
 
   async findLike({ userId, tweetId }) {
@@ -35,11 +35,25 @@ class TweetRepository {
   }
 
   async likeTweet({ userId, tweetId }) {
+    const tweet = await Twetter.findByPk(tweetId);
+    await tweet.update({ likes: tweet.likes + 1 });
     const like = await LikeUser.create({
       user_id: userId,
       twetter_id: tweetId,
     });
     return like;
+  }
+
+  async deslikeTweet({ userId, tweetId }) {
+    const tweet = await Twetter.findByPk(tweetId);
+    await tweet.update({ likes: tweet.likes - 1 });
+    const like = await LikeUser.findOne({
+      where: {
+        user_id: userId,
+        twetter_id: tweetId,
+      },
+    });
+    await like.destroy();
   }
 
   async create({ data, userId }) {
