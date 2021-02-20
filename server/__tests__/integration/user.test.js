@@ -1,9 +1,9 @@
 import request from 'supertest';
 import faker from 'faker';
 
-import app from '../../src/app';
-import truncate from '../util/truncate';
-import factory from '../factories';
+import app from '@/app';
+import truncate from '@/tests/util/truncate';
+import factory from '@/tests/factories';
 
 describe('User', () => {
   describe('Create', () => {
@@ -74,7 +74,7 @@ describe('User', () => {
           email: user.email,
           password: user.password,
         });
-      expect(response.status).toBe(401);
+      expect(response.status).toBe(400);
     });
 
     it('should with valid credentials', async () => {

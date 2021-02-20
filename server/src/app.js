@@ -1,4 +1,4 @@
-import './bootstrap';
+import 'module-alias/register';
 
 import cors from 'cors';
 import helmet from 'helmet';
@@ -6,10 +6,11 @@ import Youch from 'youch';
 import express from 'express';
 import 'express-async-errors';
 
-import routes from './routes';
-import AppError from './core/errors/AppError';
+import '@/bootstrap';
+import routes from '@/routes';
+import AppError from '@/core/errors/AppError';
 
-import './database';
+import '@/database';
 
 class App {
   constructor() {

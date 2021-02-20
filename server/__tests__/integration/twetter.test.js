@@ -1,8 +1,8 @@
 import request from 'supertest';
 
-import app from '../../src/app';
-import truncate from '../util/truncate';
-import factory from '../factories';
+import app from '@/app';
+import truncate from '@/tests/util/truncate';
+import factory from '@/tests/factories';
 
 describe('Twetter', () => {
   beforeEach(async () => {

@@ -1,4 +1,4 @@
-import Unathorized from '../../core/errors/Unathorized';
+import EmailAlreadyRegister from '@/users/errors/EmailAlreadyRegister';
 
 class SignInService {
   constructor(userRepository) {
@@ -9,7 +9,7 @@ class SignInService {
     const { email } = userData;
     const checkUser = await this.userRepository.findByEmail(email);
 
-    if (checkUser) throw new Unathorized('Este email já existe');
+    if (checkUser) throw new EmailAlreadyRegister();
 
     const user = await this.userRepository.create(userData);
     const { id, name } = user;

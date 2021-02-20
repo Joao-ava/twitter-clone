@@ -1,4 +1,4 @@
-import NotFound from '../../core/errors/NotFound';
+import UserNotFound from '@/users/errors/UserNotFound';
 
 class DeleteFollowingService {
   constructor(userRepository) {
@@ -7,7 +7,8 @@ class DeleteFollowingService {
 
   async run({ userId, followingId }) {
     const following = await this.userRepository.findById(followingId);
-    if (!following) throw new NotFound('Usuário não existe');
+    if (!following) throw new UserNotFound();
+
     await following.removeFollowings(userId);
   }
 }

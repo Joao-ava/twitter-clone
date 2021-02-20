@@ -1,4 +1,4 @@
-import NotFound from '../../core/errors/NotFound';
+import UserNotFound from '@/users/errors/UserNotFound';
 
 class ListFollowerService {
   constructor(userRepository) {
@@ -7,7 +7,7 @@ class ListFollowerService {
 
   async run({ userId, page = 1 }) {
     const user = await this.userRepository.findById(userId);
-    if (!user) throw new NotFound('Usuário não encontrado');
+    if (!user) throw new UserNotFound();
 
     const followings = await this.userRepository.paginateFollowers({
       userId,

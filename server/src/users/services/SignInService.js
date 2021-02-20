@@ -1,5 +1,5 @@
-import Unathorized from '../../core/errors/Unathorized';
-import NotFound from '../../core/errors/NotFound';
+import UserNotFound from '@/users/errors/UserNotFound';
+import PasswordIncorrect from '@/users/errors/PasswordIncorrect';
 
 class SignInService {
   constructor(userRepository) {
@@ -9,16 +9,10 @@ class SignInService {
   async run({ email, password }) {
     const user = await this.userRepository.findByEmail(email);
 
-    if (!user) {
-      throw new NotFound('Usuario não encontrado');
-    }
-
-    if (!(await user.checkPassword(password))) {
-      throw new Unathorized('Senha incorreta');
-    }
+    if (!user) throw new UserNotFound();
+    if (!(await user.checkPassword(password))) throw new PasswordIncorrect();
 
     const { id, name } = user;
-
     return {
       user: {
         id,

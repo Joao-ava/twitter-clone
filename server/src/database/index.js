@@ -1,12 +1,12 @@
 import Sequelize from 'sequelize';
 
-import databaseConfig from '../config/database';
+import databaseConfig from '@/config/database';
 
-import File from '../core/entities/File';
-import User from '../users/entities/User';
-import UserFollower from '../users/entities/UserFollower';
-import Twetter from '../tweets/entities/Twetter';
-import LikeUser from '../tweets/entities/LikeUser';
+import File from '@/core/entities/File';
+import User from '@/users/entities/User';
+import UserFollower from '@/users/entities/UserFollower';
+import Twetter from '@/tweets/entities/Twetter';
+import LikeUser from '@/tweets/entities/LikeUser';
 
 const models = [LikeUser, Twetter, User, UserFollower, File];
 

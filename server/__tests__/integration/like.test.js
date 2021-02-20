@@ -1,10 +1,10 @@
 import request from 'supertest';
 import faker from 'faker';
 
-import app from '../../src/app';
-import Twetter from '../../src/tweets/entities/Twetter';
-import truncate from '../util/truncate';
-import factory from '../factories';
+import app from '@/app';
+import Twetter from '@/tweets/entities/Twetter';
+import truncate from '@/tests/util/truncate';
+import factory from '@/tests/factories';
 
 describe('Like', () => {
   beforeEach(async () => {

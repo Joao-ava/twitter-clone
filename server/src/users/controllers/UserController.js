@@ -1,6 +1,6 @@
-import UserRepository from '../repositories/UserRepository';
-import SignUpService from '../services/SignUpService';
-import UpdateUserService from '../services/UpdateUserService';
+import UserRepository from '@/users/repositories/UserRepository';
+import SignUpService from '@/users/services/SignUpService';
+import UpdateUserService from '@/users/services/UpdateUserService';
 
 class UserController {
   async store(req, res) {
