@@ -21,4 +21,18 @@ module.exports = {
     camelcase: 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
   },
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': [
+        {
+          rootPathSuffix: 'src/',
+          rootPathPrefix: '@/',
+        },
+        {
+          rootPathSuffix: '__tests__/',
+          rootPathPrefix: '@/tests/',
+        },
+      ],
+    },
+  },
 };

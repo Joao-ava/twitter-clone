@@ -1,5 +1,3 @@
-import 'module-alias/register';
-
 import cors from 'cors';
 import helmet from 'helmet';
 import Youch from 'youch';
@@ -11,6 +9,8 @@ import routes from '@/routes';
 import AppError from '@/core/errors/AppError';
 
 import '@/database';
+
+const { log } = console;
 
 class App {
   constructor() {
@@ -42,7 +42,7 @@ class App {
 
         return res.status(500).json(errors);
       }
-      console.log(err);
+      log(err);
 
       return res.status(500).json({ error: 'Internal server error' });
     });

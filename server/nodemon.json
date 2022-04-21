@@ -1,6 +1,6 @@
 {
   "legacyWatch": true,
   "execMap": {
-    "js": "sucrase-node"
+    "js": "babel-node"
   }
 }
