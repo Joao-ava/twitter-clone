@@ -1,5 +1,5 @@
 import request from 'supertest';
-import faker from 'faker';
+import faker from '@faker-js/faker';
 
 import app from '@/app';
 import truncate from '@/tests/util/truncate';
@@ -125,6 +125,7 @@ describe('follower', () => {
     //     .get(`/user/${user.id}/following`)
     //     .set('Authorization', `bearer ${user.generateToken()}`)
     //     .send();
+    //   console.log(response.body);
     //   expect(response.body.length).toBe(2);
     // });
   });
