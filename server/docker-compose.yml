@@ -12,6 +12,8 @@ services:
       - db
     ports:
       - '3333:3333'
+    networks:
+      - twitter
 
   db:
     image: postgres:latest
@@ -22,6 +24,14 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
       POSTGRES_DB: ${DB_NAME}
     volumes:
-      - database-data:/var/lib/postgresql/data/
+      - database-twitter:/var/lib/postgresql/data/
     ports:
       - '5432'
+    networks:
+      - twitter
+
+volumes:
+  database-twitter:
+
+networks:
+  twitter:
