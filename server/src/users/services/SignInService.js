@@ -8,7 +8,6 @@ class SignInService {
 
   async run({ email, password }) {
     const user = await this.userRepository.findByEmail(email);
-
     if (!user) throw new UserNotFound();
     if (!(await user.checkPassword(password))) throw new PasswordIncorrect();
 
