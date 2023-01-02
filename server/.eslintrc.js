@@ -20,7 +20,7 @@ module.exports = {
     'no-param-reassign': 'off',
     camelcase: 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
-    'import/prefer-default-export': false,
+    'import/prefer-default-export': 0,
   },
   settings: {
     'import/resolver': {
