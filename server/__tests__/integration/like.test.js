@@ -15,7 +15,7 @@ describe('Like', () => {
     it('should no have tweet', async () => {
       const user = await factory.create('User');
       const response = await request(app)
-        .post(`/twetter/${faker.random.number()}/like`)
+        .post(`/twetter/${faker.datatype.number()}/like`)
         .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.status).toBe(404);
@@ -59,7 +59,7 @@ describe('Like', () => {
     it('should no have tweet', async () => {
       const user = await factory.create('User');
       const response = await request(app)
-        .delete(`/twetter/${faker.random.number()}/like`)
+        .delete(`/twetter/${faker.datatype.number()}/like`)
         .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.status).toBe(404);

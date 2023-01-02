@@ -14,7 +14,7 @@ factory.define('User', User, {
 });
 
 factory.define('Twetter', Twetter, {
-  likes: faker.random.number(),
+  likes: faker.datatype.number(),
   content: faker.lorem.words(),
 });
 
