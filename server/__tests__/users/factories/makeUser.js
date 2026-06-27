@@ -1,8 +1,8 @@
-import faker from '@faker-js/faker';
-import MockUser from '../mocks/entities/MockUser';
+import { faker } from '@faker-js/faker';
+import MockUser from '../mocks/entities/MockUser.js';
 
 const makeUser = () => new MockUser({
-  name: faker.name.findName(),
+  name: faker.person.fullName(),
   email: faker.internet.email(),
   bio: faker.lorem.paragraph(),
   password: faker.internet.password(),

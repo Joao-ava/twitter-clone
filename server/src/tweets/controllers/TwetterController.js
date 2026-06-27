@@ -1,6 +1,6 @@
-import TweetRepository from '../repositories/TweetRepository';
-import ListTweetService from '../services/ListTweetService';
-import CreateTweetService from '../services/CreateTweetService';
+import TweetRepository from '../repositories/TweetRepository.js';
+import ListTweetService from '../services/ListTweetService.js';
+import CreateTweetService from '../services/CreateTweetService.js';
 
 class TwetterController {
   async index(req, res) {

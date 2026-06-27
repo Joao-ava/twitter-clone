@@ -1,14 +1,13 @@
 import cors from 'cors';
 import helmet from 'helmet';
-import Youch from 'youch';
+import { Youch } from 'youch';
 import express from 'express';
-import 'express-async-errors';
 
-import '@/bootstrap';
-import routes from '@/routes';
-import AppError from '@/core/errors/AppError';
+import '#app/bootstrap.js';
+import routes from '#app/routes.js';
+import AppError from '#app/core/errors/AppError.js';
 
-import '@/database';
+import '#app/database/index.js';
 
 const { log } = console;
 

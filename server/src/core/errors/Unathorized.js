@@ -1,9 +1,9 @@
-import AppError from './AppError';
+import AppError from './AppError.js';
 
 class Unathorized extends AppError {
   constructor(message) {
     super(message);
-    this.name = 'Unathorized';
+    this.name = 'Unathorized.js';
     this.status = 401;
   }
 }

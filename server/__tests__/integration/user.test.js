@@ -1,9 +1,9 @@
 import request from 'supertest';
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
-import app from '@/app';
-import truncate from '@/tests/util/truncate';
-import factory from '@/tests/factories';
+import app from '#app/app.js';
+import truncate from '#tests/util/truncate.js';
+import factory from '#tests/factories.js';
 
 describe('User', () => {
   describe('Create', () => {
@@ -169,7 +169,7 @@ describe('User', () => {
         .put('/user')
         .set('Authorization', `bearer ${user.generateToken()}`)
         .send({
-          email: 'email.c@om',
+          email: 'email.com',
         });
       expect(response.status).toBe(400);
     });

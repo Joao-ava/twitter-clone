@@ -1,10 +1,10 @@
 import request from 'supertest';
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
-import app from '@/app';
-import Twetter from '@/tweets/entities/Twetter';
-import truncate from '@/tests/util/truncate';
-import factory from '@/tests/factories';
+import app from '#app/app.js';
+import Twetter from '#app/tweets/entities/Twetter.js';
+import truncate from '#tests/util/truncate.js';
+import factory from '#tests/factories.js';
 
 describe('Like', () => {
   beforeEach(async () => {
@@ -15,7 +15,7 @@ describe('Like', () => {
     it('should no have tweet', async () => {
       const user = await factory.create('User');
       const response = await request(app)
-        .post(`/twetter/${faker.datatype.number()}/like`)
+        .post(`/twetter/${faker.number.int()}/like`)
         .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.status).toBe(404);
@@ -59,7 +59,7 @@ describe('Like', () => {
     it('should no have tweet', async () => {
       const user = await factory.create('User');
       const response = await request(app)
-        .delete(`/twetter/${faker.datatype.number()}/like`)
+        .delete(`/twetter/${faker.number.int()}/like`)
         .set('Authorization', `bearer ${user.generateToken()}`)
         .send();
       expect(response.status).toBe(404);

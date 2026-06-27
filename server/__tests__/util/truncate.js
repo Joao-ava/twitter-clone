@@ -1,4 +1,4 @@
-import database from '../../src/database';
+import database from '#app/database/index.js';
 
 export default function truncate() {
   return Promise.all(

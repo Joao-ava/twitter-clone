@@ -2,7 +2,7 @@ import Sequelize, { Model } from 'sequelize';
 import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 
-import authConfig from '@/config/auth';
+import authConfig from '#app/config/auth.js';
 
 class User extends Model {
   static init(sequelize) {

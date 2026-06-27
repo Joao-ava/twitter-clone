@@ -1,9 +1,9 @@
 import request from 'supertest';
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
-import app from '@/app';
-import truncate from '@/tests/util/truncate';
-import factory from '@/tests/factories';
+import app from '#app/app.js';
+import truncate from '#tests/util/truncate.js';
+import factory from '#tests/factories.js';
 
 describe('Following', () => {
   beforeEach(async () => {

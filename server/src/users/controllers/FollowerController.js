@@ -1,5 +1,5 @@
-import UserRepository from '@/users/repositories/UserRepository';
-import ListFollowerService from '@/users/services/ListFollowerService';
+import UserRepository from '#app/users/repositories/UserRepository.js';
+import ListFollowerService from '#app/users/services/ListFollowerService.js';
 
 class FollowerController {
   async index(req, res) {

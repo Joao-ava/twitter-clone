@@ -1,5 +1,5 @@
-import NotFound from '../../core/errors/NotFound';
-import BadRequest from '../../core/errors/BadRequest';
+import NotFound from '#app/core/errors/NotFound.js';
+import BadRequest from '#app/core/errors/BadRequest.js';
 
 class DeleteTweetService {
   constructor(tweetRepository) {

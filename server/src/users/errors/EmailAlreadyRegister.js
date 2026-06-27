@@ -1,4 +1,4 @@
-import BadRequest from '@/core/errors/BadRequest';
+import BadRequest from '#app/core/errors/BadRequest.js';
 
 class EmailAlreadyRegister extends BadRequest {
   constructor() {

@@ -1,20 +1,20 @@
 import { Router } from 'express';
 
 // controllers
-import SessionController from '@/users/controllers/SessionController';
-import UserController from '@/users/controllers/UserController';
-import FollowingController from '@/users/controllers/FollowingController';
-import FollowerController from '@/users/controllers/FollowerController';
-import TwetterController from '@/tweets/controllers/TwetterController';
-import LikeController from '@/tweets/controllers/LikeController';
+import SessionController from '#app/users/controllers/SessionController.js';
+import UserController from '#app/users/controllers/UserController.js';
+import FollowingController from '#app/users/controllers/FollowingController.js';
+import FollowerController from '#app/users/controllers/FollowerController.js';
+import TwetterController from '#app/tweets/controllers/TwetterController.js';
+import LikeController from '#app/tweets/controllers/LikeController.js';
 
 // validations
-import SessionStore from '@/users/validations/SessionStore';
-import UserStore from '@/users/validations/UserStore';
-import UserUpdate from '@/users/validations/UserUpdate';
+import SessionStore from '#app/users/validations/SessionStore.js';
+import UserStore from '#app/users/validations/UserStore.js';
+import UserUpdate from '#app/users/validations/UserUpdate.js';
 
 // middlewares
-import authMiddleware from '@/users/middlewares/auth';
+import authMiddleware from '#app/users/middlewares/auth.js';
 
 const routes = new Router();
 

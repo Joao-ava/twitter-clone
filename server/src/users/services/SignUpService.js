@@ -1,4 +1,4 @@
-import EmailAlreadyRegister from '@/users/errors/EmailAlreadyRegister';
+import EmailAlreadyRegister from '#app/users/errors/EmailAlreadyRegister.js';
 
 class SignUpService {
   constructor(userRepository) {

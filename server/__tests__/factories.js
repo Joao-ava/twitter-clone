@@ -1,20 +1,20 @@
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 import { factory } from 'factory-girl';
 
-import User from '../src/users/entities/User';
-import UserFollower from '../src/users/entities/UserFollower';
-import Twetter from '../src/tweets/entities/Twetter';
-import LikeUser from '../src/tweets/entities/LikeUser';
+import User from '#app/users/entities/User.js';
+import UserFollower from '#app/users/entities/UserFollower.js';
+import Twetter from '#app/tweets/entities/Twetter.js';
+import LikeUser from '#app/tweets/entities/LikeUser.js';
 
 factory.define('User', User, {
-  name: faker.name.findName(),
+  name: faker.person.fullName(),
   email: faker.internet.email(),
   bio: faker.lorem.paragraph(),
   password: faker.internet.password(),
 });
 
 factory.define('Twetter', Twetter, {
-  likes: faker.datatype.number(),
+  likes: faker.number.int(),
   content: faker.lorem.words(),
 });
 

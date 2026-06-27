@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import authConfig from '@/config/auth';
-import MockBaseEntity from '@/tests/core/mocks/entities/MockBaseEntity'
+import authConfig from '#app/config/auth.js';
+import MockBaseEntity from '#tests/core/mocks/entities/MockBaseEntity.js';
 
 class MockUser extends MockBaseEntity {
   constructor(data) {

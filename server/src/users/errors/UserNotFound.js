@@ -1,4 +1,4 @@
-import NotFound from '@/core/errors/NotFound';
+import NotFound from '#app/core/errors/NotFound.js';
 
 class UserNotFound extends NotFound {
   constructor() {

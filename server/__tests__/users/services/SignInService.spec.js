@@ -1,9 +1,11 @@
-import faker from '@faker-js/faker';
-import SignInService from '@/users/services/SignInService';
-import UserNotFound from '@/users/errors/UserNotFound';
-import PasswordIncorrect from '@/users/errors/PasswordIncorrect';
-import makeUser from '../factories/makeUser';
-import MemoryUsersRepository from '../mocks/repositories/MemoryUsersRepository';
+import { faker } from '@faker-js/faker';
+
+import SignInService from '#app/users/services/SignInService.js';
+import UserNotFound from '#app/users/errors/UserNotFound.js';
+import PasswordIncorrect from '#app/users/errors/PasswordIncorrect.js';
+
+import makeUser from '../factories/makeUser.js';
+import MemoryUsersRepository from '../mocks/repositories/MemoryUsersRepository.js';
 
 describe('SignInService', () => {
   const makeSut = async () => {
@@ -25,12 +27,12 @@ describe('SignInService', () => {
   it('should be throw error if user email not exist', async () => {
     const { sut, params } = await makeSut();
     params.email = faker.internet.email();
-    await expect(sut.run(params)).rejects.toThrowError(UserNotFound);
+    await expect(sut.run(params)).rejects.toBeInstanceOf(UserNotFound);
   });
 
   it('should be throw error if user password is incorrect', async () => {
     const { sut, params } = await makeSut();
     params.password = faker.internet.password();
-    await expect(sut.run(params)).rejects.toThrowError(PasswordIncorrect);
+    await expect(sut.run(params)).rejects.toBeInstanceOf(PasswordIncorrect);
   });
 });

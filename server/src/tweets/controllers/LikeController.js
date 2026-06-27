@@ -1,6 +1,6 @@
-import TweetRepository from '../repositories/TweetRepository';
-import CreateLikeService from '../services/CreateLikeService';
-import DeleteLikeService from '../services/DeleteLikeService';
+import TweetRepository from '../repositories/TweetRepository.js';
+import CreateLikeService from '../services/CreateLikeService.js';
+import DeleteLikeService from '../services/DeleteLikeService.js';
 
 class LikeController {
   async store(req, res) {

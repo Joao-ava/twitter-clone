@@ -1,7 +1,8 @@
-import SignUpService from '@/users/services/SignUpService';
-import EmailAlreadyRegister from '@/users/errors/EmailAlreadyRegister';
-import makeSignUpParam from '../factories/makeSignUpParam';
-import MemoryUsersRepository from '../mocks/repositories/MemoryUsersRepository';
+import SignUpService from '#app/users/services/SignUpService.js';
+import EmailAlreadyRegister from '#app/users/errors/EmailAlreadyRegister.js';
+
+import makeSignUpParam from '../factories/makeSignUpParam.js';
+import MemoryUsersRepository from '../mocks/repositories/MemoryUsersRepository.js';
 
 describe('SignUpService', () => {
   const makeSut = () => {
@@ -22,6 +23,6 @@ describe('SignUpService', () => {
     const { sut, usersRepository } = makeSut();
     const params = makeSignUpParam();
     await usersRepository.create(params);
-    await expect(sut.run(params)).rejects.toThrowError(EmailAlreadyRegister);
+    await expect(sut.run(params)).rejects.toBeInstanceOf(EmailAlreadyRegister);
   });
 });

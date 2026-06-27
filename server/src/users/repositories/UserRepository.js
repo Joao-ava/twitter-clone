@@ -1,6 +1,6 @@
-import File from '@/core/entities/File';
-import User from '@/users/entities/User';
-import UserFollower from '@/users/entities/UserFollower';
+import File from '#app/core/entities/File.js';
+import User from '#app/users/entities/User.js';
+import UserFollower from '#app/users/entities/UserFollower.js';
 
 class UserRepositories {
   async findById(id) {

@@ -1,7 +1,7 @@
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 const makeSignUpParam = () => ({
-  name: faker.name.findName(),
+  name: faker.person.fullName(),
   email: faker.internet.email(),
   bio: faker.lorem.paragraph(),
   password: faker.internet.password(),

@@ -1,5 +1,5 @@
-import UserNotFound from '@/users/errors/UserNotFound';
-import PasswordIncorrect from '@/users/errors/PasswordIncorrect';
+import UserNotFound from '#app/users/errors/UserNotFound.js';
+import PasswordIncorrect from '#app/users/errors/PasswordIncorrect.js';
 
 class SignInService {
   constructor(userRepository) {

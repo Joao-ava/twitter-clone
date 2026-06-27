@@ -1,5 +1,5 @@
-import UserRepository from '@/users/repositories/UserRepository';
-import SignInService from '@/users/services/SignInService';
+import UserRepository from '#app/users/repositories/UserRepository.js';
+import SignInService from '#app/users/services/SignInService.js';
 
 class SessionController {
   async store(req, res) {

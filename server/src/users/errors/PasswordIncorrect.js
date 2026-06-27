@@ -1,4 +1,4 @@
-import Unathorized from '@/core/errors/Unathorized';
+import Unathorized from '#app/core/errors/Unathorized.js';
 
 class PasswordIncorrect extends Unathorized {
   constructor() {

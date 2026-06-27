@@ -1,7 +1,7 @@
-import UserRepository from '@/users/repositories/UserRepository';
-import CreateFollowingService from '@/users/services/CreateFollowingService';
-import ListFollowingService from '@/users/services/ListFollowingService';
-import DeleteFollowingService from '@/users/services/DeleteFollowingService';
+import UserRepository from '#app/users/repositories/UserRepository.js';
+import CreateFollowingService from '#app/users/services/CreateFollowingService.js';
+import ListFollowingService from '#app/users/services/ListFollowingService.js';
+import DeleteFollowingService from '#app/users/services/DeleteFollowingService.js';
 
 class FollowingController {
   async index(req, res) {

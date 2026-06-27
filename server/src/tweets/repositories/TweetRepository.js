@@ -1,5 +1,5 @@
-import Twetter from '../entities/Twetter';
-import LikeUser from '../entities/LikeUser';
+import Twetter from '../entities/Twetter.js';
+import LikeUser from '../entities/LikeUser.js';
 
 class TweetRepository {
   async findById(id) {

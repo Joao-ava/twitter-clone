@@ -1,8 +1,8 @@
 import request from 'supertest';
 
-import app from '@/app';
-import truncate from '@/tests/util/truncate';
-import factory from '@/tests/factories';
+import app from '#app/app.js';
+import truncate from '#tests/util/truncate.js';
+import factory from '#tests/factories.js';
 
 describe('authenticated', () => {
   beforeEach(async () => {

@@ -8,13 +8,12 @@ export default async function UserUpdate(req, res, next) {
         .email()
         .required(),
       bio: Yup.string(),
-      oldPassword: Yup.string().min(8),
+      oldPassword: Yup.string().nullable(),
       password: Yup.string()
-        .min(8)
-        .when('oldPassword', (oldPassword, field) =>
-          oldPassword ? field.required() : field
+        .when('oldPassword', ([oldPassword], field) =>
+          oldPassword ? field.min(8).required() : field.nullable()
         ),
-      confirmPassword: Yup.string().when('password', (password, field) =>
+      confirmPassword: Yup.string().when('password', ([password], field) =>
         password ? field.required().oneOf([Yup.ref('password')]) : field
       ),
     });

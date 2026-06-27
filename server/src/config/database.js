@@ -1,6 +1,6 @@
-require('../bootstrap');
+import '../bootstrap.js';
 
-module.exports = {
+const config = {
   dialect: process.env.DB_DIALECT,
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
@@ -14,3 +14,5 @@ module.exports = {
     underscoredAll: true,
   },
 };
+
+export default config;

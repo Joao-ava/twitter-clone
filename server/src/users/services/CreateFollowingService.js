@@ -1,4 +1,4 @@
-import UserNotFound from '@/users/errors/UserNotFound';
+import UserNotFound from '#app/users/errors/UserNotFound.js';
 
 class CreateFollowingService {
   constructor(userRepository) {

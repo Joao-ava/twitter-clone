@@ -1,4 +1,4 @@
-import MockUser from '../entities/MockUser';
+import MockUser from '../entities/MockUser.js';
 
 class MemoryUsersRepositiry {
   constructor() {
