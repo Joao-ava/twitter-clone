@@ -1,7 +1,7 @@
 // For a detailed explanation regarding each configuration property, visit:
 // https://jestjs.io/docs/en/configuration.html
 
-module.exports = {
+export default {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -71,10 +71,10 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  moduleNameMapper: {
-    '@/tests/(.*)': '<rootDir>/__tests__/$1',
-    '@/(.*)': '<rootDir>/src/$1',
-  },
+  // moduleNameMapper: {
+  //   '#tests/(.*)': '<rootDir>/__tests__/$1',
+  //   '#app/(.*)': '<rootDir>/src/$1',
+  // },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -159,9 +159,7 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  transform: {
-    '.(js|jsx|ts|tsx)': 'babel-jest',
-  },
+  transform: {},
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

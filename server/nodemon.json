@@ -1,6 +1,0 @@
-{
-  "legacyWatch": true,
-  "execMap": {
-    "js": "babel-node"
-  }
-}

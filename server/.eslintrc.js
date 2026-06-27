@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   env: {
     es6: true,
     node: true,
@@ -11,7 +11,7 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2025,
     sourceType: 'module',
   },
   rules: {
@@ -21,19 +21,5 @@ module.exports = {
     camelcase: 'off',
     'no-unused-vars': ['error', { argsIgnorePattern: 'next' }],
     'import/prefer-default-export': 0,
-  },
-  settings: {
-    'import/resolver': {
-      'babel-plugin-root-import': [
-        {
-          rootPathSuffix: 'src/',
-          rootPathPrefix: '@/',
-        },
-        {
-          rootPathSuffix: '__tests__/',
-          rootPathPrefix: '@/tests/',
-        },
-      ],
-    },
   },
 };
