@@ -1,12 +1,13 @@
 import '../bootstrap.js';
 
+const isTest = process.env.NODE_ENV == 'test'
 const config = {
   dialect: process.env.DB_DIALECT,
   host: process.env.DB_HOST,
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  storage: './__tests__/database.sqlite',
+  storage: isTest ? './__tests__/database.sqlite' : './database.sqlite',
   logging: false,
   define: {
     timestamps: true,
