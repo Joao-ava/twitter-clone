@@ -9,6 +9,7 @@ class MockUser extends MockBaseEntity {
     this.email = data.email;
     this.bio = data.bio;
     this.password = data.password;
+    this.username = data.username;
   }
 
   generateToken() {

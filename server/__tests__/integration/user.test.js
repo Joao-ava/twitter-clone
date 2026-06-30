@@ -85,6 +85,7 @@ describe('User', () => {
         .send({
           name: user.name,
           email: user.email,
+          username: user.username,
           password: user.password,
         });
       expect(response.status).toBe(200);
@@ -151,6 +152,7 @@ describe('User', () => {
       const user = await factory.create('User');
       const otherUser = await factory.create('User', {
         email: faker.internet.email(),
+        username: faker.internet.username(),
       });
 
       const response = await request(app)

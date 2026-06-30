@@ -4,6 +4,7 @@ export default async function UserStore(req, res, next) {
   try {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
+      username: Yup.string().required(),
       email: Yup.string()
         .email()
         .required(),

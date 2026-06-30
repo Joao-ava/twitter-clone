@@ -7,6 +7,7 @@ export default async function UserUpdate(req, res, next) {
       email: Yup.string()
         .email()
         .required(),
+      username: Yup.string(),
       bio: Yup.string(),
       oldPassword: Yup.string().nullable(),
       password: Yup.string()

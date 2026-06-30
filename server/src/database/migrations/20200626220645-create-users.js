@@ -11,6 +11,11 @@ export default {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      username: {
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false,
+      },
       email: {
         type: Sequelize.STRING,
         allowNull: false,

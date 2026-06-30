@@ -8,6 +8,7 @@ import LikeUser from '#app/tweets/entities/LikeUser.js';
 
 factory.define('User', User, {
   name: faker.person.fullName(),
+  username: faker.internet.username(),
   email: faker.internet.email(),
   bio: faker.lorem.paragraph(),
   password: faker.internet.password(),

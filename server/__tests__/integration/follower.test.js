@@ -84,6 +84,7 @@ describe('follower', () => {
       const user = await factory.create('User');
       const otherUser = await factory.create('User', {
         email: faker.internet.email(),
+        username: faker.internet.username(),
       });
       const response = await request(app)
         .get(`/user/${otherUser.id}/following`)

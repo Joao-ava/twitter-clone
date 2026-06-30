@@ -23,10 +23,11 @@ describe('Following', () => {
       expect(response.status).toBe(404);
     });
 
-    it('should user valite', async () => {
+    it('should user valide', async () => {
       const user = await factory.create('User');
       const otherUser = await factory.create('User', {
         email: faker.internet.email(),
+        username: faker.internet.username(),
       });
       const response = await request(app)
         .post(`/user/${otherUser.id}/following`)
@@ -49,10 +50,11 @@ describe('Following', () => {
       expect(response.status).toBe(404);
     });
 
-    it('should user valite', async () => {
+    it('should user valide', async () => {
       const user = await factory.create('User');
       const otherUser = await factory.create('User', {
         email: faker.internet.email(),
+        username: faker.internet.username(),
       });
       const response = await request(app)
         .delete(`/user/${otherUser.id}/following`)
@@ -106,9 +108,11 @@ describe('Following', () => {
       const user = await factory.create('User');
       const otherUserOne = await factory.create('User', {
         email: faker.internet.email(),
+        username: faker.internet.username(),
       });
       const otherUserTwo = await factory.create('User', {
         email: faker.internet.email(),
+        username: faker.internet.username(),
       });
       await factory.create('UserFollower', {
         user_id: user.id,
