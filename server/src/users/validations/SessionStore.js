@@ -1,20 +1,12 @@
-import * as Yup from 'yup';
+import * as Yup from 'yup'
 
-export default async function SessionStore(req, res, next) {
-  try {
-    const schema = Yup.object().shape({
-      email: Yup.string()
-        .email()
-        .required(),
-      password: Yup.string().required(),
-    });
+import validation from '#app/core/middlewares/validation.js'
 
-    await schema.validate(req.body, { abortEarly: false });
+const SessionStore = validation(Yup.object().shape({
+  email: Yup.string()
+    .email()
+    .required(),
+  password: Yup.string().required(),
+}))
 
-    return next();
-  } catch (err) {
-    return res
-      .status(400)
-      .json({ error: 'Erro de validação', messages: err.inner });
-  }
-}
+export default SessionStore

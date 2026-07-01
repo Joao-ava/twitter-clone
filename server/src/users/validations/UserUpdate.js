@@ -1,30 +1,22 @@
-import * as Yup from 'yup';
+import * as Yup from 'yup'
 
-export default async function UserUpdate(req, res, next) {
-  try {
-    const schema = Yup.object().shape({
-      name: Yup.string(),
-      email: Yup.string()
-        .email()
-        .required(),
-      username: Yup.string(),
-      bio: Yup.string(),
-      oldPassword: Yup.string().nullable(),
-      password: Yup.string()
-        .when('oldPassword', ([oldPassword], field) =>
-          oldPassword ? field.min(8).required() : field.nullable()
-        ),
-      confirmPassword: Yup.string().when('password', ([password], field) =>
-        password ? field.required().oneOf([Yup.ref('password')]) : field
-      ),
-    });
+import validation from '#app/core/middlewares/validation.js'
 
-    await schema.validate(req.body, { abortEarly: true });
+const UserUpdate = validation(Yup.object().shape({
+  name: Yup.string(),
+  email: Yup.string()
+    .email()
+    .required(),
+  username: Yup.string(),
+  bio: Yup.string(),
+  oldPassword: Yup.string().nullable(),
+  password: Yup.string()
+    .when('oldPassword', ([oldPassword], field) =>
+      oldPassword ? field.min(8).required() : field.nullable()
+    ),
+  confirmPassword: Yup.string().when('password', ([password], field) =>
+    password ? field.required().oneOf([Yup.ref('password')]) : field
+  ),
+}))
 
-    return next();
-  } catch (err) {
-    return res
-      .status(400)
-      .json({ error: 'Erro de validação', messages: err.inner });
-  }
-}
+export default UserUpdate
