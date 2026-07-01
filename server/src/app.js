@@ -2,6 +2,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { Youch } from 'youch';
 import express from 'express';
+import cookieParser from 'cookie-parser'
 
 import '#app/bootstrap.js';
 import routes from '#app/routes.js';
@@ -24,6 +25,7 @@ class App {
     this.server.use(helmet());
     this.server.use(cors());
     this.server.use(express.json());
+    this.server.use(cookieParser())
   }
 
   routes() {
